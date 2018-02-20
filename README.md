@@ -2,11 +2,11 @@
 
 ## messages テーブル
 |Column|Type|Options|
-|:-----|:---|:------|
-|body|text|null: false|
+|------|----|-------|
+|body|text||
 |image|string||
-|user_id|references|foreign_key: true|
-|group_id|references|foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
 
 ### アソシエーション
 - belongs_to :user
@@ -14,32 +14,28 @@
 
 ## users テーブル
 |Column|Type|Options|
-|:-----|:---|:------|
-|name|string|null: false, unique: true|
-
-※nameカラムには、グループからメンバーを追加する際に、検索しやすいようindexを貼る
+|------|----|-------|
+|name|string|index: true, null: false, unique: true|
+|email|string|null: false|
 
 ### アソシエーション
 - has_many :messages
-- has_many :group_users, through: :group_users
+- has_many :members
 
 ## groups テーブル
 |Column|Type|Options|
-|:-----|:---|:------|
-|name|string|null: false|
+|------|----|-------|
+|name|string|null: false, unique: true|
 
 ### アソシエーション
 - has_many :messages
-- has_many :group_users, through: :group_users
+- has_many :members
 
-## group_users テーブル
-
+## members テーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
-
-※user_idカラム、group_idカラムには、両者を参照しやすくするために、indexを貼る
 
 ### アソシエーション
 - belongs_to :group
