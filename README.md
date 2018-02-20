@@ -16,11 +16,10 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|index: true, null: false, unique: true|
-|email|string|null: false|
 
 ### アソシエーション
 - has_many :messages
-- has_many :members
+- has_many :members, through: :members
 
 ## groups テーブル
 |Column|Type|Options|
@@ -29,7 +28,7 @@
 
 ### アソシエーション
 - has_many :messages
-- has_many :members
+- has_many :members, through: :members
 
 ## members テーブル
 |Column|Type|Options|
