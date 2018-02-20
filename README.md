@@ -16,6 +16,7 @@
 |Column|Type|Options|
 |:-----|:---|:------|
 |name|string|null: false, unique: true|
+
 ※nameカラムには、グループからメンバーを追加する際に、検索しやすいようindexを貼る
 
 ### アソシエーション
@@ -27,7 +28,7 @@
 |:-----|:---|:------|
 |name|string|null: false|
 
-## group_users table
+### アソシエーション
 - has_many :messages
 - has_many :group_users, through: :group_users
 
@@ -37,8 +38,9 @@
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
+
 ※user_idカラム、group_idカラムには、両者を参照しやすくするために、indexを貼る
 
-### Association
+### アソシエーション
 - belongs_to :group
 - belongs_to :user
