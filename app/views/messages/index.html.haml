@@ -6,9 +6,6 @@
     .cf::after{
       content: "";display:block;clear:both;
       }
-    body{
-    overflow: hidden;
-    }
   .notion--aqua{style: "text-align: center;color: white;background: #38AEF0;"}
     .notion--text
       チャットグループが作成されました。
@@ -25,11 +22,12 @@
             = fa_icon "cog"
       .groups{style: "height: calc(100vh - 100px);background: #2F3E51;padding: 20px 20px 0;overflow: scroll;"}
         - for i in 1..14
-          .group{style: "margin-bottom:40px;"}
-            .group__name{style: "font-size: 15px;"}
-              sampleグループ
-            .group__latemessage{style: "font-size: 11px;"}
-              テストメッセージその#{i}
+          %a{href: "/", style: "text-decoration: none;color: #FFFFFF"}
+            .group{style: "padding-bottom:40px;"}
+              .group__name{style: "font-size: 15px;"}
+                sampleグループ
+              .group__latemessage{style: "font-size: 11px;"}
+                テストメッセージその#{i}
     .main{style:"float: left;width: calc(100vw - 300px);"}
       .header{class: "cf", style: "height: 100px;padding: 0 40px;border-bottom: 1px solid #eeeeee"}
         .group-info{style: "float:left;"}
