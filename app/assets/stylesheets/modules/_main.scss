@@ -1,0 +1,125 @@
+%main-padding{
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.main{
+  float: left;
+  width: calc(100vw - 300px);
+
+  .header{
+    @include clearfix();
+    @extend %main-padding;
+    height: 100px;
+    border-bottom: solid 1px #EEEEEE;
+
+    .group-info{
+      float: left;
+
+      &__title{
+        font-size: 20px;
+        color: #333333;
+        margin-top: 35px;
+      }
+
+      &__members{
+        @include clearfix();
+        font-size: 12px;
+        color: $midgray;
+        margin-top: 15px;
+
+        &__title, &__member{
+          float: left;
+        }
+      }
+    }
+
+    &__edit-button{
+      float: right;
+      height: 40px;
+      padding: 0 20px;
+      margin-top: 28px;
+      line-height: 40px;
+      color: $aqua;
+      border: solid 1px $aqua;
+    }
+  }
+
+  .messages{
+    @extend %main-padding;
+    padding-top:46px;
+    height: calc(100vh - 100px - 90px);
+    background: #FAFAFA;
+    overflow: scroll;
+
+    .message{
+      margin-bottom:40px;
+
+      &__top{
+        @include clearfix();
+        margin-bottom: 10px;
+
+        &__name{
+          float: left;
+          margin-right: 10px;
+          font-size: 16px;
+          font-weight: bold;
+          color: $midblack;
+        }
+
+        &__date{
+          float: left;
+          font-size: 12px;
+          color: $midgray;
+        }
+      }
+
+      &__bottom{
+        font-size: 14px;
+        color: $midblack;
+      }
+    }
+  }
+
+  .forms{
+    @extend %main-padding;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background: #DDDDDD;
+
+    .form{
+      @include clearfix();
+
+      &__message{
+        float: left;
+        width: calc(100% - 150px);
+        height: 50px;
+        border: none;
+        padding: 0 10px;
+      }
+
+      &__uploader{
+        float: left;
+        height: 50px;
+        line-height: 50px;
+        background: $white;
+        padding-right: 10px;
+
+        &--hidden{
+          display: none;
+        }
+      }
+
+      &__submit{
+        height: 50px;
+        margin-left: 15px;
+        line-height: 50px;
+        padding-left: 30px;
+        padding-right: 30px;
+        border: none;
+        color: $white;
+        background: $aqua;
+      }
+    }
+  }
+}
