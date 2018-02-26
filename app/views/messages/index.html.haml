@@ -1,0 +1,60 @@
+#wrapper{style: "overflot:hidden"}
+  :css
+    *, *::after,*::before{
+      box-sizing: border-box;
+    }
+    .cf::after{
+      content: "";display:block;clear:both;
+      }
+    body{
+    overflow: hidden;
+    }
+  .notion--aqua{style: "text-align: center;color: white;background: #38AEF0;"}
+    .notion--text
+      チャットグループが作成されました。
+
+  .content{class: "cf"}
+    .sidebar{style: "float: left;width: 300px;color: #FFFFFF;"}
+      .account{class: "cf", style: "height: 100px;font-size: 16px;background: #253141;padding: 0 20px;line-height: 100px;"}
+        %h2{class: "account__name", style: "font-weight: bold;float: left;"}
+          test Taro
+        %ul{class: "options cf", style: "float:right;"}
+          %li{class: "options__list", style: "float: left;"}
+            = fa_icon "edit"
+          %li{class: "options__list", style: "float: left;margin-left:5px;"}
+            = fa_icon "cog"
+      .groups{style: "height: calc(100vh - 100px);background: #2F3E51;padding: 20px 20px 0;overflow: scroll;"}
+        - for i in 1..14
+          .group{style: "margin-bottom:40px;"}
+            .group__name{style: "font-size: 15px;"}
+              sampleグループ
+            .group__latemessage{style: "font-size: 11px;"}
+              テストメッセージその#{i}
+    .main{style:"float: left;width: calc(100vw - 300px);"}
+      .header{class: "cf", style: "height: 100px;padding: 0 40px;border-bottom: 1px solid #eeeeee"}
+        .group-info{style: "float:left;"}
+          .group-info__title{style: "font-size: 20px;color: #333333;margin-top: 35px;"}
+            sampleグループ
+          %ul{class: "group-info__members", style: "font-size: 12px;color: #999999;margin-top: 15px"}
+            .title{style: "float: left;"}Member：
+            %li{class: "member", style: "float: left"}
+              test Taro
+        .main__edit-button{style: "height: 40px;padding: 0 20px;float: right;margin-top: 28px;line-height: 38px;color: #38AEF0;border: 1px solid;"}
+          edit
+      .messages{style: "height:calc(100vh - 100px - 90px);padding: 46px 40px 0;background: #FAFAFA;overflow:scroll;"}
+        - for i in 1..14
+          .message{style: "margin-bottom: 40px;"}
+            .top-message{class: "cf", style: "margin-bottom: 10px;"}
+              .top-message_name{style: "float: left;margin-right: 10px;font-size: 16px;font-weight: bold;color: #434A54"}
+                test Taro
+              .top-message_date{style: "float: left;font-size: 12px;color: #999999;"}
+                2018/02/28 00:00
+            .bottom-message{style: "font-size:14px;color: #434A54"}テストメッセージその#{i}
+      .forms{style: "padding: 20px 40px;background: #DDDDDD;"}
+        %form{class: "form cf"}
+          %input{class: "form__message", type: "text", placeholder: "type a message", style: "height: 50px;float: left;border: none; padding:0 10px;width: calc(100% - 150px);"}
+          .form__uploder{style: "height: 50px;float: left;font-size: 20px;line-height: 50px;background: #FFFFFF;padding-right:10px;"}
+            %label
+              = fa_icon "image"
+              %input{type: "file", style: "display: none;"}
+          %input{class: "form__submit--aqua", type: "submit", value: "Send", style: "height:50px;margin-left: 15px;border:none;background:#38AEF0;color:#FFFFFF;line-height:50px;padding: 0 30px;"}
