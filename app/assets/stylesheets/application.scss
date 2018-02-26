@@ -1,8 +1,8 @@
-// リセットSCSSの定義
+/* リセットSCSSの定義 */
 @import "./reset";
-// 変数SCSSの定義
+/* 変数SCSSの定義 */
 @import "./config/variable";
-// mixinの導入
-@import "./mixin/clearfix"; // clearfix
-// font-awesomeの導入
+/* mixinの導入 */
+@import "./mixin/clearfix"; /* clearfix */
+/* font-awesomeの導入 */
 @import "font-awesome";
