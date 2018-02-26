@@ -8,24 +8,24 @@
       チャットグループが作成されました。
 
   .content
-    .sidebar{style: "float: left;width: 300px;color: #FFFFFF;"}
-      .account{class: "cf", style: "height: 100px;font-size: 16px;background: #253141;padding: 0 20px;line-height: 100px;"}
-        %h2{class: "account__name", style: "font-weight: bold;float: left;"}
+    .sidebar
+      .account
+        %h2{class: "account__name"}
           test Taro
-        %ul{class: "options cf", style: "float:right;"}
-          %li{class: "options__list", style: "float: left;"}
+        %ul{class: "account__options"}
+          %li{class: "account__options__list"}
             = fa_icon "edit"
-          %li{class: "options__list", style: "float: left;margin-left:5px;"}
+          %li{class: "account__options__list--cog"}
             = fa_icon "cog"
-      .groups{style: "height: calc(100vh - 100px);background: #2F3E51;padding: 20px 20px 0;overflow: scroll;"}
+      .groups
         - for i in 1..14
-          %a{href: "/", style: "text-decoration: none;color: #FFFFFF"}
-            .group{style: "padding-bottom:40px;"}
-              .group__name{style: "font-size: 15px;"}
-                sampleグループ
-              .group__latemessage{style: "font-size: 11px;"}
-                テストメッセージその#{i}
-    .main{style:"float: left;width: calc(100vw - 300px);"}
+          -# %a{href: "/", style: "text-decoration: none;color: #FFFFFF"}
+          .group
+            .group__name
+              sampleグループ
+            .group__latemessage
+              テストメッセージその#{i}
+    .main
       .header{class: "cf", style: "height: 100px;padding: 0 40px;border-bottom: 1px solid #eeeeee"}
         .group-info{style: "float:left;"}
           .group-info__title{style: "font-size: 20px;color: #333333;margin-top: 35px;"}
