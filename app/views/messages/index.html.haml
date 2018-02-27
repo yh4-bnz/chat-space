@@ -1,0 +1,41 @@
+#wrapper
+  .notification
+    .notification__text
+      チャットグループが作成されました。
+
+  .content
+    .sidebar
+      .account
+        %h2{class: "account__name"}
+          test Taro
+        %ul{class: "account__options"}
+          %li{class: "account__options__list"}
+            = fa_icon "edit"
+          %li{class: "account__options__list--cog"}
+            = fa_icon "cog"
+      .groups
+        - for i in 1..14
+          = render partial: "groups", locals: { i: i }
+    .main
+      .header
+        .group-info
+          .group-info__title
+            sampleグループ
+          %ul{class: "group-info__members"}
+            .group-info__members__title
+              Member：
+            %li{class: "group-info__members__member"}
+              test Taro
+        .header__edit-button
+          edit
+      .messages
+        - for i in 1..14
+          = render partial: "messages", locals: { i: i }
+      .forms
+        %form{class: "form"}
+          %input{class: "form__message", type: "text", placeholder: "type a message"}
+          .form__uploader
+            %label
+              = fa_icon "image"
+              %input{class: "form__uploader--hidden", type: "file"}
+          %input{class: "form__submit", type: "submit", value: "Send"}
