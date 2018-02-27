@@ -49,7 +49,7 @@
     @extend %main-padding;
     padding-top:46px;
     height: calc(100vh - 100px - 90px);
-    background: #FAFAFA;
+    background: $whitegray;
     overflow: scroll;
 
     .message{

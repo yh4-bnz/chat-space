@@ -12,7 +12,7 @@
     @include clearfix();
     @extend %side-padding;
     height: 100px;
-    background: #253141;
+    background: $darkblue;
     line-height: 100px;
 
     &__name{
@@ -39,7 +39,7 @@
 .groups{
   @extend %side-padding;
   height: calc(100vh - 100px);
-  background: #2F3E51;
+  background: $navy;
   padding-top: 20px;
   overflow: scroll;
 
