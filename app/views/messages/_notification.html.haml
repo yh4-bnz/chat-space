@@ -1,0 +1,4 @@
+- flash.each do |key, value|
+  .notification
+    .notification__text
+      = content_tag :div, value, class: "notification__text__#{key}"
