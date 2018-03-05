@@ -1,19 +1,6 @@
 #wrapper
   .content
-    .sidebar
-      .account
-        %h2{class: "account__name"}
-          = current_user.name
-        %ul{class: "account__options"}
-          %li{class: "account__options__list"}
-            = link_to new_group_path do
-              = fa_icon "edit"
-          %li{class: "account__options__list--cog"}
-            = link_to edit_user_path(current_user) do
-              = fa_icon "cog"
-      .groups
-        - for i in 1..14
-          = render partial: "groups", locals: { i: i }
+    = render partial: "shared/sidebar"
     .main
       .header
         .group-info
@@ -28,7 +15,7 @@
           edit
       .messages
         - for i in 1..14
-          = render partial: "messages", locals: { i: i }
+          = render partial: "shared/messages", locals: { i: i }
       .forms
         %form{class: "form"}
           %input{class: "form__message", type: "text", placeholder: "type a message"}
