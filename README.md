@@ -19,7 +19,7 @@
 
 ### アソシエーション
 - has_many :messages
-- has_many :members, through: :members
+- has_many :groups, through: :members
 
 ## groups テーブル
 |Column|Type|Options|
@@ -28,7 +28,7 @@
 
 ### アソシエーション
 - has_many :messages
-- has_many :members, through: :members
+- has_many :users, through: :members
 
 ## members テーブル
 |Column|Type|Options|
