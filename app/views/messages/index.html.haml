@@ -14,13 +14,12 @@
         .header__edit-button
           edit
       .messages
-        - for i in 1..14
-          = render partial: "shared/messages", locals: { i: i }
+        = render partial: "shared/message", collection: @messages
       .forms
-        %form{class: "form"}
-          %input{class: "form__message", type: "text", placeholder: "type a message"}
+        = form_for [@group, @message] ,html: {class: "form"} do |f|
+          = f.text_field :body, class: "form__message", placeholder: "type a message"
           .form__uploader
-            %label
+            = f.label :image do
               = fa_icon "image"
-              %input{class: "form__uploader--hidden", type: "file"}
-          %input{class: "form__submit", type: "submit", value: "Send"}
+              = f.file_field :image, class: "form__uploader--hidden"
+          = f.submit "Send", class: "form__submit"
