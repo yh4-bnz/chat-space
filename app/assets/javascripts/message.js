@@ -43,6 +43,5 @@ $(function(){
     .fail(function(data) {
       alert ('メッセージを入力してください')
     });
-    return false;
   });
 });
