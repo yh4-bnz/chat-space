@@ -1,22 +1,27 @@
 $(function(){
   function buildHTML(message){
+    var Image = '';
+    if (message.image){
+      Image = `<img class="message_bottom__image" src="${ message.image }">`;
+    }
     var html = `<div class="message">
     <div class="message__top">
     <div class="message__top__name">
-    ${message.name}
+    ${ message.name }
     </div>
     <div class="message__top__date">
-    ${message.time}
+    ${ message.time }
     </div>
     </div>
     <div class="message__bottom">
     <p class="message__bottom__body">
-    ${message.body}
+    ${ message.body }
     </p>
+    ${ Image }
     </div>
     </div>`
     return html;
-    }
+  }
 
   $('#new_message').on('submit', function(e){
     e.preventDefault();
@@ -32,11 +37,12 @@ $(function(){
     })
     .done(function(data) {
       var html = buildHTML(data);
-      $('.messages').append(html)
-      $('.form__message').val('')
+      $('.messages').append(html).animate({scrollTop: $('.messages')[0].scrollHeight}, 1500);
+      $('.form__message').val('');
     })
-    .fail(function() {
-      alert('error')
+    .fail(function(data) {
+      alert ('メッセージを入力してください')
     });
+    return false;
   });
 });
