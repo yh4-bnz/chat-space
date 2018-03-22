@@ -35,7 +35,7 @@ $(function(){
     var dataId = $('.message').data('messageId');
     var innerHTML = '';
     data.forEach(function(message) {
-      if (message.id > dataId){
+      if (message.id + 1 > dataId){
         innerHTML += buildHTML(message);
       }
     });
