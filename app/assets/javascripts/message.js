@@ -23,6 +23,26 @@ $(function(){
     return html;
   }
 
+  var IntervalTime = 5000;
+  setInterval(autoReload, IntervalTime);
+  function autoReload () {
+    var current_url = $(location).attr('href');
+    $.ajax({
+      url: current_url,
+      dataType: 'json'
+    })
+  .done(function(data){
+    var innerHTML = '';
+  data.forEach(function(message) {
+      innerHTML += buildHTML(message);
+    });
+    $('.message').html(innerHTML);
+  })
+  .fail(function(data) {
+    alert ('エラーが発生しました');
+  })
+  }
+
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
