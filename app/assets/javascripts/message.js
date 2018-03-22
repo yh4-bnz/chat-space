@@ -23,27 +23,30 @@ $(function(){
     return html;
   }
 
-  setInterval(autoReload, 5000);
+  var Intervals = setInterval(autoReload, 5000);
   function autoReload () {
-    var current_url = $(location).attr('href');
-    $.ajax({
-      url: current_url,
-      dataType: 'json'
-    })
-  .done(function(data){
-    var dataId = $('.message:last-child').data('messageId');
-    console.log(dataId);
-    var innerHTML = '';
-    data.forEach(function(message) {
-      if (message.id > dataId){
-        innerHTML += buildHTML(message);
-      }
-    });
-    $('.messages').append(innerHTML);
-  })
-  .fail(function(data) {
-    alert ('エラーが発生しました');
-  })
+    var current_url = $(location).attr('pathname');
+    if (current_url.match(/\/groups\/\d+\/messages/)) {
+      $.ajax({
+        url: current_url,
+        dataType: 'json'
+      })
+      .done(function(data){
+        var dataId = $('.message:last-child').data('messageId');
+        var innerHTML = '';
+        data.forEach(function(message) {
+          if (message.id > dataId){
+            innerHTML += buildHTML(message);
+          }
+        });
+        $('.messages').append(innerHTML);
+      })
+      .fail(function(data) {
+        alert ('エラーが発生しました');
+      })
+    } else {
+      clearInterval(Intervals);
+    }
   }
 
   $('#new_message').on('submit', function(e){
