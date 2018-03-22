@@ -23,8 +23,7 @@ $(function(){
     return html;
   }
 
-  var IntervalTime = 5000;
-  setInterval(autoReload, IntervalTime);
+  setInterval(autoReload, 5000);
   function autoReload () {
     var current_url = $(location).attr('href');
     $.ajax({
