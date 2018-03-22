@@ -4,7 +4,7 @@ $(function(){
     if (message.image){
       Image = `<img class="message_bottom__image" src="${ message.image }">`;
     }
-    var html = `<div class="message">
+    var html = `<div class="message" data-message-id="${message.id}">
     <div class="message__top">
     <div class="message__top__name">
     ${ message.name }
@@ -32,11 +32,14 @@ $(function(){
       dataType: 'json'
     })
   .done(function(data){
+    var dataId = $('.message').data('messageId');
     var innerHTML = '';
-  data.forEach(function(message) {
-      innerHTML += buildHTML(message);
+    data.forEach(function(message) {
+      if (message.id > dataId){
+        innerHTML += buildHTML(message);
+      }
     });
-    $('.message').html(innerHTML);
+    $('.messages').prepend(innerHTML);
   })
   .fail(function(data) {
     alert ('エラーが発生しました');
