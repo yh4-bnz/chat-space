@@ -32,14 +32,15 @@ $(function(){
       dataType: 'json'
     })
   .done(function(data){
-    var dataId = $('.message').data('messageId');
+    var dataId = $('.message:last-child').data('messageId');
+    console.log(dataId);
     var innerHTML = '';
     data.forEach(function(message) {
-      if (message.id + 1 > dataId){
+      if (message.id > dataId){
         innerHTML += buildHTML(message);
       }
     });
-    $('.messages').prepend(innerHTML);
+    $('.messages').append(innerHTML);
   })
   .fail(function(data) {
     alert ('エラーが発生しました');
