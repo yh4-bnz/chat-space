@@ -5,12 +5,14 @@
       .header
         .group-info
           .group-info__title
-            sampleグループ
+            = @group.name
           %ul.group-info__members
             .group-info__members__title
               Member：
             %li.group-info__members__member
-              test Taro
+              - @group.users.each do |user|
+                = user.name
+              .user.name
         .header__edit-button
           edit
       .messages

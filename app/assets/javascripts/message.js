@@ -60,6 +60,7 @@ $(function(){
       contentType: false
     })
     .done(function(data) {
+      console.log('submit')
       var html = buildHTML(data);
       $('.messages').append(html).animate({scrollTop: $('.messages')[0].scrollHeight}, 1500);
       $('.form__message').val('');
