@@ -27,17 +27,19 @@ $(function(){
   function autoReload () {
     var current_url = $(location).attr('pathname');
     if (current_url.match(/\/groups\/\d+\/messages/)) {
+        var dataId = $('.message:last-child').data('messageId');
       $.ajax({
         url: current_url,
+        data: {
+          messageId: dataId
+        },
         dataType: 'json'
       })
       .done(function(data){
-        var dataId = $('.message:last-child').data('messageId');
+        console.log(data);
         var innerHTML = '';
         data.forEach(function(message) {
-          if (message.id > dataId){
             innerHTML += buildHTML(message);
-          }
         });
         $('.messages').append(innerHTML);
       })
@@ -67,7 +69,7 @@ $(function(){
       $('.form__message').val('');
     })
     .fail(function(data) {
-      alert ('メッセージを入力してください')
+      alert ('メッセージを入力してください');
     });
   });
 });
