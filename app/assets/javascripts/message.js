@@ -36,7 +36,6 @@ $(function(){
         dataType: 'json'
       })
       .done(function(data){
-        console.log(data);
         var innerHTML = '';
         data.forEach(function(message) {
             innerHTML += buildHTML(message);
